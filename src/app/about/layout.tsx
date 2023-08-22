@@ -1,15 +1,13 @@
 import React, { ReactNode } from 'react'
-import styles from './page.module.css'
 
 export const metadata = {
-  title: "Portfolio",
-  description: "This is the Portfolio page",
-};
+    title: "About",
+    description: "This is the about page",
+  };
 
 const Layout = ({children} : { children: ReactNode;} ) => {
   return (
     <div>
-      <h1 className={styles.mainTitle}>Our Works</h1>
       {children}
     </div>
   )
