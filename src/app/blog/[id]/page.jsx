@@ -4,13 +4,13 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 
 async function getData(id) {
-  // const res = await fetch(`http://localhost:3000/api/posts/${id}`, {
-  //   cache: "no-store",
-  // });
-
-  const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {
+  const res = await fetch(`http://localhost:3000/api/posts/${id}`, {
     cache: "no-store",
   });
+
+  // const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {
+  //   cache: "no-store",
+  // });
 
   console.log('check id 1', id);
 
@@ -55,8 +55,7 @@ const BlogPost = async ({ params }) => {
         </div>
         <div className={styles.imageContainer}>
           <Image
-            // src={data.img}
-            src="https://images.pexels.com/photos/17673164/pexels-photo-17673164/free-photo-of-rocky-beach-by-the-sea.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
+            src={data.img}
             alt=""
             fill={true}
             className={styles.image}
