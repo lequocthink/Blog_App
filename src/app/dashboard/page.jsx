@@ -43,10 +43,12 @@ const Dashboard = () => {
   const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
   const { data, mutate, error, isLoading } = useSWR(
-    // `/api/posts?username=${session?.data?.user.name}`,
-    `https://jsonplaceholder.typicode.com/posts`,
+    `/api/posts?username=${session?.data?.user.name}`,
+    // `https://jsonplaceholder.typicode.com/posts`,
     fetcher
   );
+
+  console.log("check data", data);
 
   if (session.status === "loading") {
     return <p>Loading...</p>;
@@ -101,8 +103,8 @@ const Dashboard = () => {
             : data?.map((post) => (
                 <div className={styles.post} key={post._id}>
                   <div className={styles.imgContainer}>
-                    {/* <Image src={post.img} alt="" width={200} height={100} /> */}
-                    <Image src="https://images.pexels.com/photos/3130810/pexels-photo-3130810.jpeg" alt="" width={200} height={100} />
+                    <Image src={post.img} alt="" width={200} height={100} />
+                    {/* <Image src="https://images.pexels.com/photos/3130810/pexels-photo-3130810.jpeg" alt="" width={200} height={100} /> */}
                   </div>
                   <h2 className={styles.postTitle}>{post.title}</h2>
                   <span
