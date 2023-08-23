@@ -3,7 +3,8 @@ import "./globals.css";
 import { Inter, Roboto, Poppins } from "next/font/google";
 import Footer from "@/components/footer/Footer";
 import { ThemeProvider } from "@/context/ThemeContext";
-// import AuthProvider from "@/components/AuthProvider/AuthProvider";
+import AuthProvider from "@/components/AuthProvider/AuthProvider";
+
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,13 +18,13 @@ export default function RootLayout({ children } : { children: React.ReactNode })
     <html lang="en">
       <body className={inter.className}>
         <ThemeProvider>
-          {/* <AuthProvider> */}
+          <AuthProvider>
             <div className="container">
               <Navbar />
               {children}
               <Footer />
             </div>
-          {/* </AuthProvider> */}
+          </AuthProvider>
         </ThemeProvider>
       </body>
     </html>

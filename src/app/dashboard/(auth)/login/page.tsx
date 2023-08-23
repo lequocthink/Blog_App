@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import styles from "./page.module.css";
-// import { getProviders, signIn, useSession } from "next-auth/react";
+import { getProviders, signIn, useSession } from "next-auth/react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 
@@ -60,7 +60,7 @@ const Login = ({ url } : {url : string}) => {
       </form>
       <button
         onClick={() => {
-          // signIn("google");
+          signIn("google");
         }}
         className={styles.button + " " + styles.google}
       >

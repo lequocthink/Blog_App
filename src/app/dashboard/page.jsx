@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import styles from "./page.module.css";
 import useSWR from "swr";
-// import { useSession } from "next-auth/react";
+import { useSession } from "next-auth/react";
 // import { useRouter } from "next/navigation";
 import Image from "next/image";
 
@@ -33,7 +33,9 @@ const Dashboard = () => {
   //   getData()
   // }, []);
 
-  // const session = useSession();
+  const session = useSession();
+
+  console.log("check session", session);
 
   // const router = useRouter();
   
@@ -99,7 +101,8 @@ const Dashboard = () => {
             : data?.map((post) => (
                 <div className={styles.post} key={post._id}>
                   <div className={styles.imgContainer}>
-                    <Image src={post.img} alt="" width={200} height={100} />
+                    {/* <Image src={post.img} alt="" width={200} height={100} /> */}
+                    <Image src="https://images.pexels.com/photos/3130810/pexels-photo-3130810.jpeg" alt="" width={200} height={100} />
                   </div>
                   <h2 className={styles.postTitle}>{post.title}</h2>
                   <span
