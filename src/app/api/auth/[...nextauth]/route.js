@@ -4,7 +4,7 @@ import GoogleProvider from "next-auth/providers/google";
 import CredentialsProvider from "next-auth/providers/credentials";
 import User from "@/models/User";
 import connect from "@/utils/db";
-// import bcrypt from "bcryptjs";
+import bcrypt from "bcryptjs";
 
 const handler = NextAuth({
     providers: [
@@ -21,10 +21,10 @@ const handler = NextAuth({
                     });
 
                     if (user) {
-                        // const isPasswordCorrect = await bcrypt.compare(
-                        //     credentials.password,
-                        //     user.password
-                        // );
+                        const isPasswordCorrect = await bcrypt.compare(
+                            credentials.password,
+                            user.password
+                        );
 
                         if (isPasswordCorrect) {
                             return user;
