@@ -3,7 +3,7 @@ import styles from "./page.module.css";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 
-async function getData(id) {
+async function getData(id : string) {
   const res = await fetch(`http://localhost:3000/api/posts/${id}`, {
     cache: "no-store",
   });
@@ -12,7 +12,7 @@ async function getData(id) {
   //   cache: "no-store",
   // });
 
-  console.log('check id 1', id);
+  // console.log('check id 1', id);
 
   if (!res.ok) {
     return notFound()
@@ -22,7 +22,7 @@ async function getData(id) {
 }
 
 
-export async function generateMetadata({ params }) {
+export async function generateMetadata({ params } : { params : params}) {
 
   const post = await getData(params.id)
   return {
@@ -31,7 +31,11 @@ export async function generateMetadata({ params }) {
   };
 }
 
-const BlogPost = async ({ params }) => {
+interface params {
+  id: string;
+}
+
+const BlogPost = async ({ params } : { params : params}) => {
   const data = await getData(params.id);
   console.log("check id", params.id);
   return (

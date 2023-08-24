@@ -19,14 +19,22 @@ async function getData() {
   return res.json();
 }
 
+interface blogType {
+  _id: string;
+  title: string;
+  desc: string;
+  img: string;
+  content: string;
+  username: string;
+}
 
 
 const Blog = async () => {
   const data = await getData();
   return (
     <div className={styles.mainContainer}>
-      {data.map((item) => (
-        <Link href={`/blog/${item._id}`} className={styles.container} key={item.id}>
+      {data.map((item: blogType) => (
+        <Link href={`/blog/${item._id}`} className={styles.container} key={item._id}>
           <div className={styles.imageContainer}>
             <Image
               src={item.img}

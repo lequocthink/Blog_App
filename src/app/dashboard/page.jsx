@@ -58,7 +58,12 @@ const Dashboard = () => {
     router?.push("/dashboard/login");
   }
 
+
+  
+
+
   const handleSubmit = async (e) => {
+    console.log("check event", e);
     e.preventDefault();
     const title = e.target[0].value;
     const desc = e.target[1].value;
