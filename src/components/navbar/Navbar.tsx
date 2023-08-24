@@ -55,7 +55,7 @@ const Navbar = () => {
           </Link>
         ))}
         {session.status === "authenticated" && (
-          <button className={styles.logout} onClick={signOut}>
+          <button className={styles.logout} onClick={() => signOut}>
             Logout
           </button>
         )}
